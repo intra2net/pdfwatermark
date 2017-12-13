@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python
 #
 # Embed a pdf as background or watermark and place it on each page of another pdf
 #

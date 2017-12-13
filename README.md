@@ -13,7 +13,7 @@ page of source.pdf. The merged data is written into output.pdf.
 
 ## Dependencies
 
-- python 3 https://www.python.org/
+- python https://www.python.org/
 - pyPDF2 http://mstamy2.github.io/PyPDF2/
 
 ## Reason for development
@@ -27,6 +27,11 @@ but most of them don't offer a equivalent of the pdftk "background" command.
 
 Mcpdf offers it, but requires iText which is not easily available on CentOS 7. Adding a
 background in QPDF is possible, but not easily scriptable.
+
+## Sample
+
+pdfwatermark.py foreground.pdf background.pdf result.pdf  
+![sample](https://raw.githubusercontent.com/zvezdochiot/python-pdfwatermark/master/sample.png)
 
 ## Alternatives
 

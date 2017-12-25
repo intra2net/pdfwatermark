@@ -30,17 +30,19 @@ import os
 import sys
 
 if len(sys.argv) != 4:
-    raise RuntimeError('Usage {} watermark.pdf source.pdf output.pdf'.format(sys.argv[0]))
+    raise RuntimeError(
+        'Usage {} watermark.pdf source.pdf output.pdf'.format(
+            sys.argv[0]))
 
 watermark_path = sys.argv[1]
 if not os.path.isfile(watermark_path):
     raise RuntimeError('Watermark file {} not found'.format(watermark_path))
-watermark = PyPDF2.PdfFileReader(open(watermark_path, "rb"))
+watermark = PyPDF2.PdfFileReader(open(watermark_path, 'rb'))
 
 source_path = sys.argv[2]
 if not os.path.isfile(source_path):
     raise RuntimeError('Source file {} not found'.format(source_path))
-source = PyPDF2.PdfFileReader(open(source_path, "rb"))
+source = PyPDF2.PdfFileReader(open(source_path, 'rb'))
 
 watermark_page = watermark.getPage(0)
 

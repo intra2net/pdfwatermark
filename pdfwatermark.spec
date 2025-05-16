@@ -1,6 +1,6 @@
 Name:           pdfwatermark
-Version:        1
-Release:        1%{?dist}
+Version:        2
+Release:        2%{?dist}
 License:        MIT X11
 Summary:        Embed a watermark in PDFs
 Group:          Applications/Publishing
@@ -10,13 +10,8 @@ Source2:        README.md
 URL:            https://github.com/intra2net/pdfwatermark
 BuildArch:      noarch
 
-%if 0%{?el7}
-BuildRequires:  python34-devel
-BuildRequires:  python34-PyPDF2
-%else
 BuildRequires:  python3-devel
-BuildRequires:  python3-PyPDF2
-%endif
+BuildRequires:  python3-pypdf
 
 %description
 Embed a pdf as background or watermark and place it on each page of another pdf.

@@ -26,7 +26,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-import PyPDF2
+import pypdf
 import os
 import sys
 
@@ -36,21 +36,21 @@ if len(sys.argv) != 4:
 watermark_path = sys.argv[1]
 if not os.path.isfile(watermark_path):
     raise RuntimeError('Watermark file {} not found'.format(watermark_path))
-watermark = PyPDF2.PdfFileReader(open(watermark_path, "rb"))
+watermark = pypdf.PdfReader(open(watermark_path, "rb"))
 
 source_path = sys.argv[2]
 if not os.path.isfile(source_path):
     raise RuntimeError('Source file {} not found'.format(source_path))
-source = PyPDF2.PdfFileReader(open(source_path, "rb"))
+source = pypdf.PdfReader(open(source_path, "rb"))
 
-watermark_page = watermark.getPage(0)
+watermark_page = watermark.pages[0]
 
-pdf_output = PyPDF2.PdfFileWriter()
+pdf_output = pypdf.PdfWriter()
 
-for pageNum in range(0, source.numPages):
-    pageObj = source.getPage(pageNum)
-    pageObj.mergePage(watermark_page)
-    pdf_output.addPage(pageObj)
+for pageNum in range(0, len(source.pages)):
+    pageObj = source.pages[pageNum]
+    pageObj.merge_page(watermark_page)
+    pdf_output.add_page(pageObj)
 
 output_file = open(sys.argv[3], 'wb')
 pdf_output.write(output_file)

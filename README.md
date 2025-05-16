@@ -14,7 +14,7 @@ page of source.pdf. The merged data is written into output.pdf.
 ## Dependencies
 
 - python 3 https://www.python.org/
-- pyPDF2 http://mstamy2.github.io/PyPDF2/
+- pypdf https://github.com/py-pdf/pypdf
 
 ## Reason for development
 
